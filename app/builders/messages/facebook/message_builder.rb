@@ -39,7 +39,7 @@ class Messages::Facebook::MessageBuilder < Messages::Messenger::MessageBuilder
   def build_contact_inbox
     @contact_inbox = @inbox.contact_inboxes.find_by(source_id: @sender_id)
     return if @contact_inbox
-    
+
     @contact_inbox = ::ContactInboxWithContactBuilder.new(
       source_id: @sender_id,
       inbox: @inbox,

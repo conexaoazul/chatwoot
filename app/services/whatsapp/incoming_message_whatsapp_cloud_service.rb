@@ -34,11 +34,11 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
 
   def download_attachment_file(attachment_payload)
     return if attachment_payload[:id].blank?
-  
+
     url_response = HTTParty.get(inbox.channel.media_url(attachment_payload[:id]), headers: inbox.channel.api_headers)
     inbox.channel.authorization_error! if url_response.unauthorized?
     return unless url_response.success? && url_response.parsed_response['url'].present?
-  
+
     Down.download(url_response.parsed_response['url'], headers: inbox.channel.api_headers)
   rescue StandardError => e
     Rails.logger.error "Error al descargar el archivo adjunto: #{e.message}"

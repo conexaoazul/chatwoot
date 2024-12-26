@@ -77,6 +77,7 @@ class Conversations::ForwardMessageJob < ApplicationJob
 
   def attach_file(msg, attachment)
     return if %w[image audio video file].include?(attachment.file_type) == false
+
     msg.attachments.new(
       account_id: attachment.account_id,
       file_type: attachment.file_type,
@@ -85,7 +86,8 @@ class Conversations::ForwardMessageJob < ApplicationJob
   end
 
   def attach_location(msg, attachment)
-    return if attachment.file_type != "location"
+    return if attachment.file_type != 'location'
+
     msg.attachments.new(
       account_id: attachment.account_id,
       file_type: attachment.file_type,
@@ -97,7 +99,8 @@ class Conversations::ForwardMessageJob < ApplicationJob
   end
 
   def attach_contact(msg, attachment)
-    return if attachment.file_type != "contact"
+    return if attachment.file_type != 'contact'
+
     msg.attachments.new(
       account_id: attachment.account_id,
       file_type: attachment.file_type,

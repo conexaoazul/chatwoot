@@ -53,7 +53,7 @@ class AutomationRules::ActionService < ActionService
     params = { content: message[0], private: true, content_attributes: { automation_rule_id: @rule.id } }
     Messages::MessageBuilder.new(nil, @conversation, params).perform
   end
-  
+
   def send_email_to_team(params)
     teams = Team.where(id: params[0][:team_ids])
 
