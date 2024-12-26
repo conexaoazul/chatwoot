@@ -119,6 +119,19 @@ export default {
         this.accountId
       );
       const menuItems = this.sideMenuConfig.primaryMenu;
+
+      // const iframeMenuItem = {
+      //   key: 'iframe',
+      //   icon: 'book-open-globe',
+      //   label: 'Iframe',
+      //   toStateName: 'iframe',
+      // };
+
+      // Adicione o item de menu do iframe se ainda não estiver no menu
+      // if (!menuItems.find(item => item.key === 'iframe')) {
+      //   menuItems.push(iframeMenuItem);
+      // }
+
       return menuItems.filter(menuItem => {
         if (
           menuItem.key === 'contacts' &&

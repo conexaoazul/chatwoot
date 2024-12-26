@@ -32,8 +32,8 @@ export default {
       default: '',
     },
     accountId: {
-      type: Number,
-      default: 0,
+      type: [String, Number],
+      required: true,
     },
     menuItems: {
       type: Array,
@@ -48,6 +48,9 @@ export default {
     return {
       helpDocsURL: wootConstants.DOCS_URL,
       showOptionsMenu: false,
+      iframeLoading: true, // Controle de estado do iframe
+      iframeURL: 'https://portal.conexaoazul.com/r/C4d?company_chat=2', // URL inicial do iframe
+      hasOpenedAtleastOnce: false, // Verifica se o iframe foi aberto pelo menos uma vez
     };
   },
   methods: {
@@ -64,6 +67,14 @@ export default {
     openNotificationPanel() {
       this.$track(ACCOUNT_EVENTS.OPENED_NOTIFICATIONS);
       this.$emit('openNotificationPanel');
+    },
+    openIframe(url) {
+      this.iframeURL = url || 'https://portal.conexaoazul.com/r/C4d?company_chat=2'; // Define a URL do iframe
+      this.hasOpenedAtleastOnce = true; // Marca que o iframe foi aberto
+      this.iframeLoading = true; // Ativa o estado de carregamento
+    },
+    onIframeLoad() {
+      this.iframeLoading = false; // Desativa o estado de carregamento após o iframe ser carregado
     },
   },
 };
@@ -88,16 +99,37 @@ export default {
         :to="menuItem.toState"
         :is-child-menu-active="menuItem.key === activeMenuItem"
       />
+      <PrimaryNavItem
+        icon="whatsapp"
+        key ="whatsapp"
+        label ="WHATSAPP" 
+        name="Iframe"
+        :to="{ name: 'iframe', params: { accountId: accountId } }"
+      />
+      <PrimaryNavItem
+        icon="automation"
+        name="IframeConector"
+        key ="conector" 
+        :to="{ name: 'iframeConector', params: { accountId: accountId } }"
+      />
+
+      <PrimaryNavItem
+        icon="globe"
+        key ="crm"
+        label ="CRM" 
+        name="IframeCrm"
+        :to="{ name: 'IframeCrm', params: { accountId: accountId } }"
+      />
     </div>
     <div class="flex flex-col items-center justify-end pb-6">
       <webphone-minimized />
-      <PrimaryNavItem
+      <!-- <PrimaryNavItem
         v-if="!isACustomBrandedInstance"
-        icon="book-open-globe"
+        icon="whatsapp"
         name="DOCS"
         open-in-new-page
         :to="helpDocsURL"
-      />
+      /> -->
       <NotificationBell @openNotificationPanel="openNotificationPanel" />
       <AgentDetails @toggleMenu="toggleOptions" />
       <OptionsMenu

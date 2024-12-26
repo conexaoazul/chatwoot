@@ -3,10 +3,10 @@
   enabled: true
 - name: channel_email
   enabled: true
-  help_url: https://chwt.app/hc/email
+  help_url: https://www.conexaoazul.com/hc/email
 - name: channel_facebook
   enabled: true
-  help_url: https://chwt.app/hc/fb
+  help_url: https://www.conexaoazul.com/hc/fb
 - name: channel_twitter
   enabled: true
 - name: ip_lookup
@@ -18,33 +18,33 @@
   enabled: false
 - name: help_center
   enabled: true
-  help_url: https://chwt.app/hc/help-center
+  help_url: https://www.conexaoazul.com/hc/help-center
 - name: agent_bots
   enabled: false
-  help_url: https://chwt.app/hc/agent-bots
+  help_url: https://www.conexaoazul.com/hc/agent-bots
 - name: macros
   enabled: true
 - name: agent_management
   enabled: true
 - name: team_management
   enabled: true
-  help_url: https://chwt.app/hc/teams
+  help_url: https://www.conexaoazul.com/hc/teams
 - name: inbox_management
   enabled: true
 - name: labels
   enabled: true
-  help_url: https://chwt.app/hc/labels
+  help_url: https://www.conexaoazul.com/hc/labels
 - name: custom_attributes
   enabled: true
-  help_url: https://chwt.app/hc/custom-attributes
+  help_url: https://www.conexaoazul.com/hc/custom-attributes
 - name: automations
   enabled: true
 - name: canned_responses
   enabled: true
-  help_url: https://chwt.app/hc/canned
+  help_url: https://www.conexaoazul.com/hc/canned
 - name: integrations
   enabled: true
-  help_url: https://chwt.app/hc/integrations
+  help_url: https://www.conexaoazul.com/hc/integrations
 - name: voice_recorder
   enabled: true
 - name: mobile_v2
@@ -53,10 +53,10 @@
   enabled: true
 - name: campaigns
   enabled: true
-  help_url: https://chwt.app/hc/campaigns
+  help_url: https://www.conexaoazul.com/hc/campaigns
 - name: reports
   enabled: true
-  help_url: https://chwt.app/hc/reports
+  help_url: https://www.conexaoazul.com/hc/reports
 - name: crm
   enabled: true
 - name: auto_resolve_conversations
@@ -73,15 +73,15 @@
   premium: true
 - name: message_reply_to
   enabled: false
-  help_url: https://chwt.app/hc/reply-to
+  help_url: https://www.conexaoazul.com/hc/reply-to
 - name: insert_article_in_reply
   enabled: false
 - name: inbox_view
   enabled: false
 - name: sla
-  enabled: false
+  enabled: true
   premium: true
-  help_url: https://chwt.app/hc/sla
+  help_url: https://www.conexaoazul.com/hc/sla
 - name: help_center_embedding_search
   enabled: false
   premium: true
@@ -90,7 +90,7 @@
 - name: captain_integration
   enabled: false
 - name: custom_roles
-  enabled: false
+  enabled: true
   premium: true
 - name: hide_all_chats_for_agent
   enabled: false

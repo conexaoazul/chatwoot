@@ -21,8 +21,16 @@ class ChatwootHub
     InstallationConfig.find_by(name: 'INSTALLATION_PRICING_PLAN')&.value || 'enterprise'
   end
 
+  # def self.pricing_plan_quantity
+  #   InstallationConfig.find_by(name: 'INSTALLATION_PRICING_PLAN_QUANTITY')&.value || 100000
+  # end
+
   def self.pricing_plan_quantity
-    InstallationConfig.find_by(name: 'INSTALLATION_PRICING_PLAN_QUANTITY')&.value || 100000
+    if pricing_plan == 'premium'
+      1000
+    else
+      0
+    end
   end
 
   def self.support_config
